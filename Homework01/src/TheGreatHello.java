@@ -10,167 +10,180 @@ public class TheGreatHello {
 		Scanner input = new Scanner(System.in);
 		String text = input.nextLine().toLowerCase();
 		input.close();
-		// System.out.println("text: " + text);
 
-		// line 01
-		String text01 = text;
-		text01 = text01.replace(" ", "     " + " ");
-		text01 = text01.replace("a", " ### " + " ");
-		text01 = text01.replace("b", "#### " + " ");
-		text01 = text01.replace("c", " ### " + " ");
-		text01 = text01.replace("d", "#### " + " ");
-		text01 = text01.replace("e", "#####" + " ");
-		text01 = text01.replace("f", "#####" + " ");
-		text01 = text01.replace("g", " ### " + " ");
-		text01 = text01.replace("h", "#   #" + " ");
-		text01 = text01.replace("i", "#####" + " ");
-		text01 = text01.replace("j", "#####" + " ");
-		text01 = text01.replace("k", "#   #" + " ");
-		text01 = text01.replace("l", "#    " + " ");
-		text01 = text01.replace("m", "#   #" + " ");
-		text01 = text01.replace("n", "#   #" + " ");
-		text01 = text01.replace("o", " ### " + " ");
-		text01 = text01.replace("p", "#### " + " ");
-		text01 = text01.replace("q", " ### " + " ");
-		text01 = text01.replace("r", "#### " + " ");
-		text01 = text01.replace("s", " ### " + " ");
-		text01 = text01.replace("t", "#####" + " ");
-		text01 = text01.replace("u", "#   #" + " ");
-		text01 = text01.replace("v", "#   #" + " ");
-		text01 = text01.replace("w", "#  #  #" + " ");
-		text01 = text01.replace("x", "#   #" + " ");
-		text01 = text01.replace("y", "#   #" + " ");
-		text01 = text01.replace("z", "#####" + " ");
+		String line01 = text;
+		String line02 = text;
+		String line03 = text;
+		String line04 = text;
+		String line05 = text;
 
-		System.out.println(text01);
+		line01 = line01.replace(" ", "     " + " ");
+		line02 = line02.replace(" ", "     " + " ");
+		line03 = line03.replace(" ", "     " + " ");
+		line04 = line04.replace(" ", "     " + " ");
+		line05 = line05.replace(" ", "     " + " ");
 
-		// line 02
-		String text02 = text;
-		text02 = text02.replace(" ", "     " + " ");
-		text02 = text02.replace("a", "#   #" + " ");
-		text02 = text02.replace("b", "#   #" + " ");
-		text02 = text02.replace("c", "#    " + " ");
-		text02 = text02.replace("d", "#   #" + " ");
-		text02 = text02.replace("e", "#    " + " ");
-		text02 = text02.replace("f", "#    " + " ");
-		text02 = text02.replace("g", "#    " + " ");
-		text02 = text02.replace("h", "#   #" + " ");
-		text02 = text02.replace("i", "  #  " + " ");
-		text02 = text02.replace("j", "  #  " + " ");
-		text02 = text02.replace("k", "#  # " + " ");
-		text02 = text02.replace("l", "#    " + " ");
-		text02 = text02.replace("m", "## ##" + " ");
-		text02 = text02.replace("n", "##  #" + " ");
-		text02 = text02.replace("o", "#   #" + " ");
-		text02 = text02.replace("p", "#   #" + " ");
-		text02 = text02.replace("q", "#   #" + " ");
-		text02 = text02.replace("r", "#   #" + " ");
-		text02 = text02.replace("s", "#    " + " ");
-		text02 = text02.replace("t", "  #  " + " ");
-		text02 = text02.replace("u", "#   #" + " ");
-		text02 = text02.replace("v", "#   #" + " ");
-		text02 = text02.replace("w", "#  #  #" + " ");
-		text02 = text02.replace("x", " # # " + " ");
-		text02 = text02.replace("y", "   # " + " ");
-		text02 = text02.replace("z", "   # " + " ");
+		line01 = line01.replace("a"," ### " + " ");
+		line02 = line02.replace("a","#   #" + " ");
+		line03 = line03.replace("a","#####" + " ");
+		line04 = line04.replace("a","#   #" + " ");
+		line05 = line05.replace("a","#   #" + " ");
 
-		System.out.println(text02);
+		line01 = line01.replace("b","#### " + " ");
+		line02 = line02.replace("b","#   #" + " ");
+		line03 = line03.replace("b","#####" + " ");
+		line04 = line04.replace("b","#   #" + " ");
+		line05 = line05.replace("b","#### " + " ");
 
-		// line 03
-		String text03 = text;
-		text03 = text03.replace(" ", "     " + " ");
-		text03 = text03.replace("a", "#####" + " ");
-		text03 = text03.replace("b", "#####" + " ");
-		text03 = text03.replace("c", "#    " + " ");
-		text03 = text03.replace("d", "#   #" + " ");
-		text03 = text03.replace("e", "###  " + " ");
-		text03 = text03.replace("f", "###  " + " ");
-		text03 = text03.replace("g", "#  ##" + " ");
-		text03 = text03.replace("h", "#####" + " ");
-		text03 = text03.replace("i", "  #  " + " ");
-		text03 = text03.replace("j", "  #  " + " ");
-		text03 = text03.replace("k", "###  " + " ");
-		text03 = text03.replace("l", "#    " + " ");
-		text03 = text03.replace("m", "# # #" + " ");
-		text03 = text03.replace("n", "# # #" + " ");
-		text03 = text03.replace("o", "#   #" + " ");
-		text03 = text03.replace("p", "#### " + " ");
-		text03 = text03.replace("q", "#   #" + " ");
-		text03 = text03.replace("r", "#### " + " ");
-		text03 = text03.replace("s", " ### " + " ");
-		text03 = text03.replace("t", "  #  " + " ");
-		text03 = text03.replace("u", "#   #" + " ");
-		text03 = text03.replace("v", "#   #" + " ");
-		text03 = text03.replace("w", "#  #  #" + " ");
-		text03 = text03.replace("x", "  #  " + " ");
-		text03 = text03.replace("y", "  #  " + " ");
-		text03 = text03.replace("z", "  #  " + " ");
+		line01 = line01.replace("c"," ### " + " ");
+		line02 = line02.replace("c","#    " + " ");
+		line03 = line03.replace("c","#    " + " ");
+		line04 = line04.replace("c","#    " + " ");
+		line05 = line05.replace("c"," ### " + " ");
 
-		System.out.println(text03);
+		line01 = line01.replace("d","#### " + " ");
+		line02 = line02.replace("d","#   #" + " ");
+		line03 = line03.replace("d","#   #" + " ");
+		line04 = line04.replace("d","#   #" + " ");
+		line05 = line05.replace("d","#### " + " ");
 
-		// line 04
-		String text04 = text;
-		text04 = text04.replace(" ", "     " + " ");
-		text04 = text04.replace("a", "#   #" + " ");
-		text04 = text04.replace("b", "#   #" + " ");
-		text04 = text04.replace("c", "#    " + " ");
-		text04 = text04.replace("d", "#   #" + " ");
-		text04 = text04.replace("e", "#    " + " ");
-		text04 = text04.replace("f", "#    " + " ");
-		text04 = text04.replace("g", "#   #" + " ");
-		text04 = text04.replace("h", "#   #" + " ");
-		text04 = text04.replace("i", "  #  " + " ");
-		text04 = text04.replace("j", "# #  " + " ");
-		text04 = text04.replace("k", "#  # " + " ");
-		text04 = text04.replace("l", "#    " + " ");
-		text04 = text04.replace("m", "#   #" + " ");
-		text04 = text04.replace("n", "#  ##" + " ");
-		text04 = text04.replace("o", "#   #" + " ");
-		text04 = text04.replace("p", "#    " + " ");
-		text04 = text04.replace("q", "#  # " + " ");
-		text04 = text04.replace("r", "#  # " + " ");
-		text04 = text04.replace("s", "    #" + " ");
-		text04 = text04.replace("t", "  #  " + " ");
-		text04 = text04.replace("u", "#   #" + " ");
-		text04 = text04.replace("v", " # # " + " ");
-		text04 = text04.replace("w", " ## ## " + " ");
-		text04 = text04.replace("x", " # # " + " ");
-		text04 = text04.replace("y", "  #  " + " ");
-		text04 = text04.replace("z", " #   " + " ");
+		line01 = line01.replace("e","#####" + " ");
+		line02 = line02.replace("e","#    " + " ");
+		line03 = line03.replace("e","###  " + " ");
+		line04 = line04.replace("e","#    " + " ");
+		line05 = line05.replace("e","#####" + " ");
 
-		System.out.println(text04);
+		line01 = line01.replace("f","#####" + " ");
+		line02 = line02.replace("f","#    " + " ");
+		line03 = line03.replace("f","###  " + " ");
+		line04 = line04.replace("f","#    " + " ");
+		line05 = line05.replace("f","#    " + " ");
 
-		// line 05
-		String text05 = text;
-		text05 = text05.replace(" ", "     " + " ");
-		text05 = text05.replace("a", "#   #" + " ");
-		text05 = text05.replace("b", "#### " + " ");
-		text05 = text05.replace("c", " ### " + " ");
-		text05 = text05.replace("d", "#### " + " ");
-		text05 = text05.replace("e", "#####" + " ");
-		text05 = text05.replace("f", "#    " + " ");
-		text05 = text05.replace("g", " ### " + " ");
-		text05 = text05.replace("h", "#   #" + " ");
-		text05 = text05.replace("i", "#####" + " ");
-		text05 = text05.replace("j", " #   " + " ");
-		text05 = text05.replace("k", "#   #" + " ");
-		text05 = text05.replace("l", "#####" + " ");
-		text05 = text05.replace("m", "#   #" + " ");
-		text05 = text05.replace("n", "#   #" + " ");
-		text05 = text05.replace("o", " ### " + " ");
-		text05 = text05.replace("p", "#    " + " ");
-		text05 = text05.replace("q", " #  #" + " ");
-		text05 = text05.replace("r", "#   #" + " ");
-		text05 = text05.replace("s", " ### " + " ");
-		text05 = text05.replace("t", "  #  " + " ");
-		text05 = text05.replace("u", " ### " + " ");
-		text05 = text05.replace("v", "  #  " + " ");
-		text05 = text05.replace("w", " #  #  " + " ");
-		text05 = text05.replace("x", "#   #" + " ");
-		text05 = text05.replace("y", "  #  " + " ");
-		text05 = text05.replace("z", "#####" + " ");
+		line01 = line01.replace("g"," ### " + " ");
+		line02 = line02.replace("g","#    " + " ");
+		line03 = line03.replace("g","#  ##" + " ");
+		line04 = line04.replace("g","#   #" + " ");
+		line05 = line05.replace("g"," ### " + " ");
 
-		System.out.println(text05);
+		line01 = line01.replace("h","#   #" + " ");
+		line02 = line02.replace("h","#   #" + " ");
+		line03 = line03.replace("h","#####" + " ");
+		line04 = line04.replace("h","#   #" + " ");
+		line05 = line05.replace("h","#   #" + " ");
+
+		line01 = line01.replace("i","#####" + " ");
+		line02 = line02.replace("i","  #  " + " ");
+		line03 = line03.replace("i","  #  " + " ");
+		line04 = line04.replace("i","  #  " + " ");
+		line05 = line05.replace("i","#####" + " ");
+
+		line01 = line01.replace("j","#####" + " ");
+		line02 = line02.replace("j","  #  " + " ");
+		line03 = line03.replace("j","  #  " + " ");
+		line04 = line04.replace("j","# #  " + " ");
+		line05 = line05.replace("j"," #   " + " ");
+
+		line01 = line01.replace("k","#   #" + " ");
+		line02 = line02.replace("k","#  # " + " ");
+		line03 = line03.replace("k","###  " + " ");
+		line04 = line04.replace("k","#  # " + " ");
+		line05 = line05.replace("k","#   #" + " ");
+
+		line01 = line01.replace("l","#    " + " ");
+		line02 = line02.replace("l","#    " + " ");
+		line03 = line03.replace("l","#    " + " ");
+		line04 = line04.replace("l","#    " + " ");
+		line05 = line05.replace("l","#####" + " ");
+
+		line01 = line01.replace("m","#   #" + " ");
+		line02 = line02.replace("m","## ##" + " ");
+		line03 = line03.replace("m","# # #" + " ");
+		line04 = line04.replace("m","#   #" + " ");
+		line05 = line05.replace("m","#   #" + " ");
+
+		line01 = line01.replace("n","#   #" + " ");
+		line02 = line02.replace("n","##  #" + " ");
+		line03 = line03.replace("n","# # #" + " ");
+		line04 = line04.replace("n","#  ##" + " ");
+		line05 = line05.replace("n","#   #" + " ");
+
+		line01 = line01.replace("o"," ### " + " ");
+		line02 = line02.replace("o","#   #" + " ");
+		line03 = line03.replace("o","#   #" + " ");
+		line04 = line04.replace("o","#   #" + " ");
+		line05 = line05.replace("o"," ### " + " ");
+
+		line01 = line01.replace("p","#### " + " ");
+		line02 = line02.replace("p","#   #" + " ");
+		line03 = line03.replace("p","#### " + " ");
+		line04 = line04.replace("p","#    " + " ");
+		line05 = line05.replace("p","#    " + " ");
+
+		line01 = line01.replace("q"," ### " + " ");
+		line02 = line02.replace("q","#   #" + " ");
+		line03 = line03.replace("q","#   #" + " ");
+		line04 = line04.replace("q","#  # " + " ");
+		line05 = line05.replace("q"," #  #" + " ");
+
+		line01 = line01.replace("r","#### " + " ");
+		line02 = line02.replace("r","#   #" + " ");
+		line03 = line03.replace("r","#### " + " ");
+		line04 = line04.replace("r","#  # " + " ");
+		line05 = line05.replace("r","#   #" + " ");
+
+		line01 = line01.replace("s"," ### " + " ");
+		line02 = line02.replace("s","#    " + " ");
+		line03 = line03.replace("s"," ### " + " ");
+		line04 = line04.replace("s","    #" + " ");
+		line05 = line05.replace("s"," ### " + " ");
+
+		line01 = line01.replace("t","#####" + " ");
+		line02 = line02.replace("t","  #  " + " ");
+		line03 = line03.replace("t","  #  " + " ");
+		line04 = line04.replace("t","  #  " + " ");
+		line05 = line05.replace("t","  #  " + " ");
+
+		line01 = line01.replace("u","#   #" + " ");
+		line02 = line02.replace("u","#   #" + " ");
+		line03 = line03.replace("u","#   #" + " ");
+		line04 = line04.replace("u","#   #" + " ");
+		line05 = line05.replace("u"," ### " + " ");
+
+		line01 = line01.replace("v","#   #" + " ");
+		line02 = line02.replace("v","#   #" + " ");
+		line03 = line03.replace("v","#   #" + " ");
+		line04 = line04.replace("v"," # # " + " ");
+		line05 = line05.replace("v","  #  " + " ");
+
+		line01 = line01.replace("w","#  #  #" + " ");
+		line02 = line02.replace("w","#  #  #" + " ");
+		line03 = line03.replace("w","#  #  #" + " ");
+		line04 = line04.replace("w"," ## ## " + " ");
+		line05 = line05.replace("w"," #  # " + "  ");
+
+		line01 = line01.replace("x","#   #" + " ");
+		line02 = line02.replace("x"," # # " + " ");
+		line03 = line03.replace("x","  #  " + " ");
+		line04 = line04.replace("x"," # # " + " ");
+		line05 = line05.replace("x","#   #" + " ");
+
+		line01 = line01.replace("y","#   #" + " ");
+		line02 = line02.replace("y"," # # " + " ");
+		line03 = line03.replace("y","  #  " + " ");
+		line04 = line04.replace("y","  #  " + " ");
+		line05 = line05.replace("y","  #  " + " ");
+
+		line01 = line01.replace("z","#####" + " ");
+		line02 = line02.replace("z","   # " + " ");
+		line03 = line03.replace("z","  #  " + " ");
+		line04 = line04.replace("z"," #   " + " ");
+		line05 = line05.replace("z","#####" + " ");
+
+		System.out.println(line01);
+		System.out.println(line02);
+		System.out.println(line03);
+		System.out.println(line04);
+		System.out.println(line05);
 
 	}
 }
