@@ -16,3 +16,15 @@ In Tetris, the figures consist of 4 blocks that are placed side-by-side in every
 </pre>
 
 Write an algorithm that would randomly create all possible blocks. Also, write a unit test for that functionality.
+
+
+USAGE
+------------
+
+run: <br/>
+- TetrisGame.java
+
+my files: <br/>
+- tetris-fx/src/ee/itcollege/tetris/lib/FigureGenerator.java <br/>
+- excel_figures.png
+
