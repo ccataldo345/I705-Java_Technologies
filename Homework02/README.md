@@ -9,9 +9,9 @@ Use the same JavaFX Tetris project that we wrote in practicum and implement a Fi
 In Tetris, the figures consist of 4 blocks that are placed side-by-side in every possible way (other possibilities are just rotations of these 7 figures):
 
 <pre>
-#     #    ##    #      #    #     #
-#     #    ##    ##    ##    #     ##
-##    #           #     #    ##    #
+#     #    ##    #      #     #      #
+#     #    ##    ##    ##     #     ##
+##    #           #     #    ##     #
       #
 </pre>
 
