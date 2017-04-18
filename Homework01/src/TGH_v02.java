@@ -13,17 +13,25 @@ public class TGH_v02 {
 		String text = input.nextLine().toLowerCase();
 		input.close();
 		System.out.println();
+		printBig(text);
+	}
 
+	public static void printBig(String text){	
 		int count = 0;
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < text.length(); j++) {
 				char c = text.charAt(j);     // split text into characters
+				if (Character.isAlphabetic(c) || c == ' '){  //check if c is a letter or an empty space
 				String[] big = alphabet.get(c);
 				count ++;
 				System.out.print(big[i]);
 				//System.out.println(Arrays.toString(big));  //print letters in one line
 				//Arrays.stream(alphabet.get(c)).forEach(System.out::print);   //print vertically
-			}
+				}
+				else {
+					c = 'A';  //any character not included in map will no be considered			
+					}
+			}	
 			System.out.println();
 		}
 		System.out.println();
