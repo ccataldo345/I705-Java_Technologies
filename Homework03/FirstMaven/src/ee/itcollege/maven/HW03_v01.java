@@ -1,6 +1,12 @@
 package ee.itcollege.maven;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -24,13 +30,20 @@ public class HW03_v01 {
 		Elements titles = document.select(".category-news-header > a[href]");
 
 		int nt = 0;
-		int nl = 0;
+		ArrayList<String> text = new ArrayList<>();
+
 		for (Element title : titles) {
 			nt++;
-			System.out.println(nt + ") " + title.text());  //parse titles
-			System.out.println(">>> " + title.attr("href"));  //parse title links			
-			System.out.println();
-		}
+			String line1 = (nt + ") " + title.text() + " (" + new Date() + ") " + "\n");  //parse titles
+			String line2 = (" >>> " + title.attr("href") + "\n\n");  //parse title links			
+			text.add(line1 + line2);
+			String textS = text.toString().replace(",", "").replace("[", " ").replace("]", "");
+			System.out.println(textS);
+		} 
+		String textS = text.toString().replace(",", "").replace("[", " ").replace("]", "");
+		Files.write(Paths.get("output/output.txt"), textS.getBytes());
+
 	}
+
 }
 

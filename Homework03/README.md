@@ -28,8 +28,8 @@ USAGE
 ------------
 
 run: <br/>
-- <!-->TetrisGame.java</!-->
+- ee.itcollege.maven.HW03_v01.java
 
 my files: <br/>
-- <!-->tetris-fx/src/ee/itcollege/tetris/lib/FigureGenerator.java <br/></!-->
+- output.txt
 
