@@ -1,11 +1,9 @@
 package ee.itcollege.maven;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 import org.jsoup.Jsoup;
@@ -31,6 +29,9 @@ public class HW03_v01 {
 
 		int nt = 0;
 		ArrayList<String> text = new ArrayList<>();
+		String info = " 📈  Estonian news in English from news.err.ee:\n"
+				+ "-----------------------------------------------\n\n";
+		text.add(info);
 
 		for (Element title : titles) {
 			nt++;
@@ -40,10 +41,10 @@ public class HW03_v01 {
 			String textS = text.toString().replace(",", "").replace("[", " ").replace("]", "");
 			System.out.println(textS);
 		} 
+		
 		String textS = text.toString().replace(",", "").replace("[", " ").replace("]", "");
 		Files.write(Paths.get("output/output.txt"), textS.getBytes());
 
 	}
-
 }
 
