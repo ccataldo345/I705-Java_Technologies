@@ -1,9 +1,7 @@
 package ee.itcollege.maven;
 
-import java.awt.List;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,13 +13,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.mockito.internal.creation.settings.CreationSettings;
 
 public class HW03_v01 {
 
 	static Document document;
-	private static Path path;
-
 	static {
 		try {
 			document = Jsoup.connect("http://news.err.ee/k/news").get();
