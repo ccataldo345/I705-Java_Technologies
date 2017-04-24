@@ -1,6 +1,9 @@
 package ee.itcollege.maven;
 
+import java.awt.List;
+import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -8,11 +11,11 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.mockito.internal.creation.settings.CreationSettings;
 
 public class HW03_v01 {
 
@@ -51,13 +54,20 @@ public class HW03_v01 {
 				break;
 			}
 		}
-		
+
 		//write to file:
 		String textS = text.toString().replace(",", "").replace("[", " ").replace("]", "");
-		path = Paths.get("output/output.txt");
-		Files.write(path, textS.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-		//CREATE = create new file if not exist; APPEND = add new data to same file when program is run
+		Path path = Paths.get("output/output.txt");
+		File news = new File("output/output.txt"); 
 
+		if (news.exists()){
+			java.util.List<String> rlines = Files.readAllLines(path);
+			rlines.add(1, textS);
+			Files.write(path, rlines);
+		} else {
+			Files.write(path, textS.getBytes(), StandardOpenOption.CREATE);
+			//CREATE = create new file if not exist; APPEND = add new data to same file when program is run
+		}
 	}
 }
 
