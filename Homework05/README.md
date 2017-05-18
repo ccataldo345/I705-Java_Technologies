@@ -25,6 +25,7 @@ USAGE
 ------------
 
 run: <br/>
+<pre>FancyPrint.java</pre>
 <!-- - ee.itcollege.maven.HW03_v01.java
 
 my files: <br/>
