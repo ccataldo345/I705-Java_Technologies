@@ -33,7 +33,7 @@ USAGE
 ------------
 
 run: <br/>
-<pre>gs-messaging-stomp-websocket/complete/src/main/java/hello/Application.java</pre>
+<pre>main/java/hello/Application.java</pre>
 <!-- - ee.itcollege.maven.HW03_v01.java
 
 my files: <br/>
