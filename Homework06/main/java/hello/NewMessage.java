@@ -1,13 +1,13 @@
 package hello;
 
-public class HelloMessage {
+public class NewMessage {
 
     private String name;
 
-    public HelloMessage() {
+    public NewMessage() {
     }
 
-    public HelloMessage(String name) {
+    public NewMessage(String name) {
         this.name = name;
     }
 
