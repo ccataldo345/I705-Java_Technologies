@@ -2,6 +2,7 @@ package ee.itcollege.headlines;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,13 +29,24 @@ public class Check {
 		transaction.commit();
 		em.close();
 	}
+	
+	// TODO use the search
+	public static void listAll(String search) {
+		EntityManager em = emf.createEntityManager();
+		TypedQuery<Headline> query = em.createQuery("from Headline", Headline.class); 
+		List<Headline> headlines = query.getResultList();
+		for (Headline headline : headlines) {
+			System.out.println(headline);
+		}
+		em.close();
+	}
 
-	public static Headline findHeadline (String title) {
+	public static Headline findHeadline(String title) {
 
 		EntityManager em = emf.createEntityManager();
 		TypedQuery<Headline> query = em.createQuery("from Headline where title = :title", Headline.class); 
 		query.setMaxResults(1); 
-		query.setParameter("title", "title");
+		query.setParameter("title", title);
 		try {
 			Headline headline = query.getSingleResult();
 			return headline;
@@ -81,7 +93,9 @@ public class Check {
 		}
 
 		System.out.println();
+		//listAll("PEter pan");
 		emf.close();
+		
 
 	}
 }
