@@ -31,7 +31,7 @@ public class Check {
 	}
 	
 	// TODO use the search
-	public static void listAll(String search) {
+	public static void listAll() {
 		EntityManager em = emf.createEntityManager();
 		TypedQuery<Headline> query = em.createQuery("from Headline", Headline.class); 
 		List<Headline> headlines = query.getResultList();
@@ -71,9 +71,9 @@ public class Check {
 			String title = element.text();
 			Headline headline = findHeadline(title);
 			if (null != headline) {
-				System.out.println("I have already seen that title: " + headline);
-				System.out.println("It points to: " + headline.getPointsToUrl());
-				System.out.println();
+				//System.out.println("I have already seen that title: " + headline);
+				//System.out.println("It points to: " + headline.getPointsToUrl());
+				//System.out.println();
 			}
 
 			else {
@@ -93,9 +93,36 @@ public class Check {
 		}
 
 		System.out.println();
-		//listAll("PEter pan");
-		emf.close();
-		
+		// listAll("PEter pan");
+		EntityManager em = emf.createEntityManager();
+		String title = "Two Russian";
+
+		while (true) {
+			System.out.println("\nPlease choose:");
+			System.out.println("1 - search headline");
+			System.out.println("2 - list all the headlines");
+			System.out.println("3 - any other number to exit");
+
+			int selection = TextIO.getlnInt();
+
+			em.getTransaction().begin();
+
+			switch (selection) {
+			case 1:
+				findHeadline(title);
+				break;
+			case 2:
+				listAll();
+				break;
+			default:
+				em.close();
+				return;
+			}
+
+			em.getTransaction().commit();
+		}
+
+		// emf.close();
 
 	}
 }
