@@ -37,12 +37,13 @@ public class Check {
 		String search = TextIO.getlnString();
 		
 		
-		TypedQuery<Headline> query = em.createQuery("from Headline where title = :title", Headline.class); 
+		TypedQuery<Headline> query = em.createQuery("from Headline where title like :title", Headline.class); 
 		query.setMaxResults(1); 
-		query.setParameter("title", search);
+		query.setParameter("title", "%" + search + "%");
 		try {
 			Headline headline = query.getSingleResult();
 			System.out.println("Found the following headline: ");
+			System.out.println(headline);
 			return headline;
 		} 
 		catch (NoResultException e) {
