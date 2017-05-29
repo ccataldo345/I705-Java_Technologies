@@ -18,8 +18,7 @@ import org.jsoup.select.Elements;
 
 public class Check {
 
-	private static EntityManagerFactory emf = 
-			Persistence.createEntityManagerFactory("headlines");
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("headlines");
 
 	public static void saveHeadline(Headline headline) {
 		EntityManager em = emf.createEntityManager();
@@ -29,7 +28,7 @@ public class Check {
 		transaction.commit();
 		em.close();
 	}
-	
+
 	// TODO use the search
 	public static void findHeadlines() {
 		EntityManager em = emf.createEntityManager();
@@ -37,27 +36,30 @@ public class Check {
 		String[] search = TextIO.getlnString().toLowerCase().split(" ");
 
 		for (int i = 0; i < search.length; i++) {
-			TypedQuery<Headline> query = em.createQuery("from Headline where lower(title) like :title", Headline.class); 
-			query.setParameter("title", "%" + search[i] + "%");
-			List<Headline> headlines = query.getResultList();
+			TypedQuery<Headline> query = em.createQuery("from Headline where lower(title) like :title", Headline.class);
+			if (i < search.length - 1) {
+				query.setParameter("title", "%" + search[i]);
+			} else {
+				query.setParameter("title", "%" + search[i] + "%");
+				List<Headline> headlines = query.getResultList();
 
-			if (headlines.isEmpty()) {
-				System.out.println("Headline not found!");
-				break;
-			}
-			else {
-				System.out.println("Found the following headlines: ");
-				for (Headline headline : headlines) {
-					System.out.println(headline);
+				if (headlines.isEmpty()) {
+					System.out.println("Headline not found!");
+					break;
+				} else {
+					System.out.println("Found the following headlines: ");
+					for (Headline headline : headlines) {
+						System.out.println(headline);
+					}
 				}
+				em.close();
 			}
-			em.close();
 		}
-	}			
-					
+	}
+
 	public static void listAll() {
 		EntityManager em = emf.createEntityManager();
-		TypedQuery<Headline> query = em.createQuery("from Headline", Headline.class); 
+		TypedQuery<Headline> query = em.createQuery("from Headline", Headline.class);
 		List<Headline> headlines = query.getResultList();
 		for (Headline headline : headlines) {
 			System.out.println(headline);
@@ -68,17 +70,15 @@ public class Check {
 	public static Headline findHeadline(String title) {
 
 		EntityManager em = emf.createEntityManager();
-		TypedQuery<Headline> query = em.createQuery("from Headline where title = :title", Headline.class); 
-		query.setMaxResults(1); 
+		TypedQuery<Headline> query = em.createQuery("from Headline where title = :title", Headline.class);
+		query.setMaxResults(1);
 		query.setParameter("title", title);
 		try {
 			Headline headline = query.getSingleResult();
 			return headline;
-		} 
-		catch (NoResultException e) {
+		} catch (NoResultException e) {
 			return null;
-		}
-		finally {
+		} finally {
 			em.close();
 		}
 	}
@@ -86,7 +86,7 @@ public class Check {
 	public static void main(String args[]) throws IOException {
 
 		String url = "http://news.err.ee/k/news";
-		Document document = Jsoup.connect(url).get();		
+		Document document = Jsoup.connect(url).get();
 
 		Elements headlines = document.select(".category-news-header a");
 		System.out.println();
@@ -95,9 +95,11 @@ public class Check {
 			String title = element.text();
 			Headline headline = findHeadline(title);
 			if (null != headline) {
-				//System.out.println("I have already seen that title: " + headline);
-				//System.out.println("It points to: " + headline.getPointsToUrl());
-				//System.out.println();
+				// System.out.println("I have already seen that title: " +
+				// headline);
+				// System.out.println("It points to: " +
+				// headline.getPointsToUrl());
+				// System.out.println();
 			}
 
 			else {
@@ -107,10 +109,10 @@ public class Check {
 				headline = new Headline();
 				headline.setTitle(title);
 				headline.setFirstSeen(new Date());
-				//System.out.println(new Date());
+				// System.out.println(new Date());
 				headline.setFoundOnUrl(url);
 				headline.setPointsToUrl(element.absUrl("href"));
-				//System.out.println(element.absUrl("href"));
+				// System.out.println(element.absUrl("href"));
 				saveHeadline(headline);
 			}
 
@@ -119,8 +121,8 @@ public class Check {
 		System.out.println("------------------------");
 		// listAll("PEter pan");
 		EntityManager em = emf.createEntityManager();
-		//String search = "Reform mayoral candidate: Tallinn must be driving force of Estonia";
-		
+		// String search = "Reform mayoral candidate: Tallinn must be driving
+		// force of Estonia";
 
 		while (true) {
 			System.out.println("\nPlease choose:");
@@ -141,7 +143,7 @@ public class Check {
 				break;
 			default:
 				em.close();
-				System.exit(0);   // stop program 
+				System.exit(0); // stop program
 				return;
 			}
 
