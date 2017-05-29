@@ -34,15 +34,18 @@ public class Check {
 	public static void findHeadlines() {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Please type the headline to search: ");
-		String search = TextIO.getlnString();
+		String search = TextIO.getlnString().toLowerCase();
 
-		TypedQuery<Headline> query = em.createQuery("from Headline where title like :title", Headline.class); 
+		TypedQuery<Headline> query = em.createQuery("from Headline where lower(title) like :title", Headline.class); 
 		query.setParameter("title", "%" + search + "%");
 		List<Headline> headlines = query.getResultList();
 		System.out.println("Found the following headlines: ");
 
 		for (Headline headline : headlines) {
 				System.out.println(headline);		
+				if (headline == null) {
+					System.out.println("Headline not found!");
+				}
 			}	
 			em.close();
 		}
