@@ -31,30 +31,22 @@ public class Check {
 	}
 	
 	// TODO use the search
-	public static Headline findHeadlines() {
+	public static void findHeadlines() {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Please type the headline to search: ");
 		String search = TextIO.getlnString();
-		
-		
+
 		TypedQuery<Headline> query = em.createQuery("from Headline where title like :title", Headline.class); 
-		query.setMaxResults(1); 
 		query.setParameter("title", "%" + search + "%");
-		try {
-			Headline headline = query.getSingleResult();
-			System.out.println("Found the following headline: ");
-			System.out.println(headline);
-			return headline;
-		} 
-		catch (NoResultException e) {
-			System.out.println("Headline not found!");
-			return null;
-		}
-		finally {
+		List<Headline> headlines = query.getResultList();
+		System.out.println("Found the following headlines: ");
+
+		for (Headline headline : headlines) {
+				System.out.println(headline);		
+			}	
 			em.close();
 		}
-	}	
-		
+					
 	public static void listAll() {
 		EntityManager em = emf.createEntityManager();
 		TypedQuery<Headline> query = em.createQuery("from Headline", Headline.class); 
