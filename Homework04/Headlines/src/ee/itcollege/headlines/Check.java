@@ -31,6 +31,29 @@ public class Check {
 	}
 	
 	// TODO use the search
+	public static Headline findHeadlines() {
+		EntityManager em = emf.createEntityManager();
+		System.out.println("Please type the headline to search: ");
+		String search = TextIO.getlnString();
+		
+		
+		TypedQuery<Headline> query = em.createQuery("from Headline where title = :title", Headline.class); 
+		query.setMaxResults(1); 
+		query.setParameter("title", search);
+		try {
+			Headline headline = query.getSingleResult();
+			System.out.println("Found the following headline: ");
+			return headline;
+		} 
+		catch (NoResultException e) {
+			System.out.println("Headline not found!");
+			return null;
+		}
+		finally {
+			em.close();
+		}
+	}	
+		
 	public static void listAll() {
 		EntityManager em = emf.createEntityManager();
 		TypedQuery<Headline> query = em.createQuery("from Headline", Headline.class); 
@@ -92,10 +115,11 @@ public class Check {
 
 		}
 
-		System.out.println();
+		System.out.println("------------------------");
 		// listAll("PEter pan");
 		EntityManager em = emf.createEntityManager();
-		String title = "Two Russian";
+		//String search = "Reform mayoral candidate: Tallinn must be driving force of Estonia";
+		
 
 		while (true) {
 			System.out.println("\nPlease choose:");
@@ -109,7 +133,7 @@ public class Check {
 
 			switch (selection) {
 			case 1:
-				findHeadline(title);
+				findHeadlines();
 				break;
 			case 2:
 				listAll();
