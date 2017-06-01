@@ -34,22 +34,23 @@ public class Check {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Please type the headline to search: ");
 		String[] search = TextIO.getlnString().toLowerCase().split(" ");
-		TypedQuery<Headline> query = em.createQuery(
-				"from Headline where lower(title) like :word1 and lower(title) like :wordx", Headline.class);
+
+		String q = "from Headline where";
+		String q2 = " lower(title) like :word";
+		String q4 = " and lower(title) like :word";
 
 		for (int i = 0; i < search.length; i++) {
-			String q1 = "from Headline where lower(title) like :word1";
-			String q2 = " and lower(title) like :word";
-			String q3 = Integer.toString(i + 2);
-
+			String q3 = Integer.toString(i);
 			if (i == 0) {
-				query = em.createQuery("from Headline where lower(title) like :word1", Headline.class);
-				query.setParameter("word1", "%" + search[0] + "%");
-			} else if (i > 0) {
-				query = em.createQuery(q1 + q2 + q3, Headline.class);
-				query.setParameter("word1", "%" + search[0] + "%");
-				query.setParameter("word" + (i + 2), "%" + search[i] + "%");
+				q += q2 + q3;
 			}
+			q += q4 + q3;
+		}
+
+		TypedQuery<Headline> query = em.createQuery(q, Headline.class);
+		for (int i = 0; i < search.length; i++) {
+
+			query.setParameter("word" + (i), "%" + search[i] + "%");
 		}
 
 		List<Headline> headlines = query.getResultList();
