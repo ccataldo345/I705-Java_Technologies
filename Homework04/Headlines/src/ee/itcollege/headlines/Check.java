@@ -34,27 +34,33 @@ public class Check {
 		EntityManager em = emf.createEntityManager();
 		System.out.println("Please type the headline to search: ");
 		String[] search = TextIO.getlnString().toLowerCase().split(" ");
+		TypedQuery<Headline> query = em.createQuery(
+				"from Headline where lower(title) like :word1 and lower(title) like :word2", Headline.class);
 
+		
 		for (int i = 0; i < search.length; i++) {
-			TypedQuery<Headline> query = em.createQuery("from Headline where lower(title) like :title", Headline.class);
-			if (i < search.length - 1) {
-				query.setParameter("title", "%" + search[i]);
-			} else {
-				query.setParameter("title", "%" + search[i] + "%");
-				List<Headline> headlines = query.getResultList();
-
-				if (headlines.isEmpty()) {
-					System.out.println("Headline not found!");
-					break;
-				} else {
-					System.out.println("Found the following headlines: ");
-					for (Headline headline : headlines) {
-						System.out.println(headline);
-					}
-				}
-				em.close();
+			if(search.length == 1){
+				query = em.createQuery(
+					"from Headline where lower(title) like :word1", Headline.class);
+				query.setParameter("word1", "%" + search[i] + "%");
+			}
+			else {
+				query.setParameter("word" + (i +1), "%" + search[i] + "%");
 			}
 		}
+			List<Headline> headlines = query.getResultList();
+
+			if (headlines.isEmpty()) {
+				System.out.println("Headline not found!");
+			} 
+			else {
+				System.out.println("Found the following headlines: ");
+				for (Headline headline : headlines) {
+					System.out.println(headline);
+				}
+			}
+		
+		em.close();
 	}
 
 	public static void listAll() {
