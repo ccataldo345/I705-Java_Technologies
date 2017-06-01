@@ -37,19 +37,19 @@ public class Check {
 
 		String q = "from Headline where";
 		String q2 = " lower(title) like :word";
-		String q4 = " and lower(title) like :word";
+		String q3 = " and lower(title) like :word";
 
 		for (int i = 0; i < search.length; i++) {
-			String q3 = Integer.toString(i);
+			String qi = Integer.toString(i);
 			if (i == 0) {
-				q += q2 + q3;
+				q += q2 + qi;
 			}
-			q += q4 + q3;
+			q += q3 + qi;
 		}
 
 		TypedQuery<Headline> query = em.createQuery(q, Headline.class);
+		
 		for (int i = 0; i < search.length; i++) {
-
 			query.setParameter("word" + (i), "%" + search[i] + "%");
 		}
 
