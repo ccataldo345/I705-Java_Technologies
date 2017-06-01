@@ -35,31 +35,34 @@ public class Check {
 		System.out.println("Please type the headline to search: ");
 		String[] search = TextIO.getlnString().toLowerCase().split(" ");
 		TypedQuery<Headline> query = em.createQuery(
-				"from Headline where lower(title) like :word1 and lower(title) like :word2", Headline.class);
+				"from Headline where lower(title) like :word1 and lower(title) like :wordx", Headline.class);
 
-		
 		for (int i = 0; i < search.length; i++) {
-			if(search.length == 1){
-				query = em.createQuery(
-					"from Headline where lower(title) like :word1", Headline.class);
-				query.setParameter("word1", "%" + search[i] + "%");
-			}
-			else {
-				query.setParameter("word" + (i +1), "%" + search[i] + "%");
+			String q1 = "from Headline where lower(title) like :word1";
+			String q2 = " and lower(title) like :word";
+			String q3 = Integer.toString(i + 2);
+
+			if (i == 0) {
+				query = em.createQuery("from Headline where lower(title) like :word1", Headline.class);
+				query.setParameter("word1", "%" + search[0] + "%");
+			} else if (i > 0) {
+				query = em.createQuery(q1 + q2 + q3, Headline.class);
+				query.setParameter("word1", "%" + search[0] + "%");
+				query.setParameter("word" + (i + 2), "%" + search[i] + "%");
 			}
 		}
-			List<Headline> headlines = query.getResultList();
 
-			if (headlines.isEmpty()) {
-				System.out.println("Headline not found!");
-			} 
-			else {
-				System.out.println("Found the following headlines: ");
-				for (Headline headline : headlines) {
-					System.out.println(headline);
-				}
+		List<Headline> headlines = query.getResultList();
+
+		if (headlines.isEmpty()) {
+			System.out.println("Headline not found!");
+		} else {
+			System.out.println("Found the following headlines: ");
+			for (Headline headline : headlines) {
+				System.out.println(headline);
 			}
-		
+		}
+
 		em.close();
 	}
 
